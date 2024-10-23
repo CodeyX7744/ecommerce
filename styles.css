@@ -1,0 +1,185 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Styling the navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+/* Styling the logo */
+.logo a {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hamburger menu bars */
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+/* Initially hide the nav-links with zero height and opacity */
+.nav-links {
+    display: block; /* Keep block display */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    z-index: 9999;
+}
+
+/* Navigation link styles */
+.nav-links li {
+    margin: 15px 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* When the active class is added, expand the nav-links */
+.nav-links.active {
+    max-height: 200px; /* Or adjust based on the content */
+    opacity: 1;
+}
+
+/* Hero section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    background-image: url(./images/hero-01.jfif);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 0 20px;
+    color: white;
+    position: relative;
+}
+
+/* Hero content */
+.hero-content {
+    z-index: 1;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 0;
+}
+
+/* Hero text */
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;  
+}
+
+/* Button style */
+.btn {
+    padding: 12px 25px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #ff4a3a;
+}
+
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        max-height: 200px;
+        opacity: 1;
+    }
+
+    .nav-links li {
+        margin: 0 15px;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        font-size: 1.5rem;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        max-height: 0; /* Ensure height is controlled by max-height */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+}
+
+
+
